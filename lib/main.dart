@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:scala_flutter/controller/boarding/boarding_controller.dart';
 import 'package:scala_flutter/di.dart';
-import 'package:scala_flutter/navigation/boarding_router.dart';
-import 'controller/boarding/boarding_controller.dart';
+
 import 'firebase_options.dart';
 import 'navigation/router.dart';
 
@@ -24,14 +24,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      Provider<RouterImpl>(create: (_) => RouterImpl()),
-    ],
-      builder:(context, child) {
+    return MultiProvider(
+      providers: [
+        Provider<RouterImpl>(create: (_) => RouterImpl()),
+        ChangeNotifierProvider<BoardingController>(
+          create: (_) => BoardingController(),
+          lazy: true,
+        ),
+      ],
+      builder: (context, child) {
         final RouterImpl goRouter = context.read<RouterImpl>();
 
         return MaterialApp.router(
-
           routeInformationParser: goRouter.router.routeInformationParser,
           routerDelegate: goRouter.router.routerDelegate,
           title: 'Flutter Template',
@@ -40,8 +44,6 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
-    
     );
   }
 }
-

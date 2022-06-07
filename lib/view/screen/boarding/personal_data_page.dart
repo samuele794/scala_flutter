@@ -11,6 +11,8 @@ class PersonalDataPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var nextEnable = context.watch<BoardingController>().firstNext;
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -37,7 +39,7 @@ class PersonalDataPage extends StatelessWidget {
             ),
             DropdownButton<UserType>(
               items: UserType.values.map(
-                (e) {
+                    (e) {
                   return DropdownMenuItem<UserType>(
                     value: e,
                     child: Text(e.name),
@@ -51,12 +53,13 @@ class PersonalDataPage extends StatelessWidget {
               value: context.watch<BoardingController>().userType,
               hint: Text(context.watch<BoardingController>().userType.name),
             ),
-            MaterialButton(
-              onPressed: context.read<BoardingController>().firstNext
-                  ? null
-                  : () {
-                      context.push("/boarding/${RoutingConstants.boardingBodyRoute.path}", extra:  context.read<BoardingController>());
-                    },
+            ElevatedButton(
+              onPressed: nextEnable
+                  ? () {
+                      context
+                          .pushNamed(RoutingConstants.boardingBodyRoute.name);
+                    }
+                  : null,
               child: const Text("Next"),
             )
           ],

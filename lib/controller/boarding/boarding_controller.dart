@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:scala_flutter/model/user/user_type.dart';
 
@@ -15,28 +14,28 @@ class BoardingController with ChangeNotifier {
 
   void setUserType(UserType userType) {
     this.userType = userType;
-    notifyListeners();
     _checkFirstOnBoardNext();
+    notifyListeners();
   }
 
-  void setName(String name){
+  void setName(String name) {
     this.name = name;
-    notifyListeners();
     _checkFirstOnBoardNext();
+    notifyListeners();
   }
 
-  void setSurname(String name){
-    this.name = name;
-    notifyListeners();
+  void setSurname(String surname) {
+    this.surname = surname;
     _checkFirstOnBoardNext();
+    notifyListeners();
   }
 
-  void setHeight(String height){
+  void setHeight(String height) {
     this.height = height;
     notifyListeners();
   }
 
-  void _checkFirstOnBoardNext(){
+  void _checkFirstOnBoardNext() {
     firstNext = userType != UserType.NONE && name.isNotEmpty && surname.isNotEmpty;
     notifyListeners();
   }
