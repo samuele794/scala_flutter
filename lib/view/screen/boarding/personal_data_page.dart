@@ -7,7 +7,7 @@ import 'package:scala_flutter/navigation/routing_constants.dart';
 import '../../../controller/boarding/boarding_controller.dart';
 
 class PersonalDataPage extends StatelessWidget {
-  PersonalDataPage({Key? key}) : super(key: key);
+  const PersonalDataPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +20,7 @@ class PersonalDataPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
+              key: const Key("nameField"),
               onChanged: (value) {
                 context.read<BoardingController>().setName(value);
               },
@@ -29,6 +30,7 @@ class PersonalDataPage extends StatelessWidget {
               ),
             ),
             TextField(
+              key: const Key("surnameField"),
               onChanged: (value) {
                 context.read<BoardingController>().setSurname(value);
               },
@@ -38,8 +40,9 @@ class PersonalDataPage extends StatelessWidget {
               ),
             ),
             DropdownButton<UserType>(
+              key: const Key("roleField"),
               items: UserType.values.map(
-                    (e) {
+                (e) {
                   return DropdownMenuItem<UserType>(
                     value: e,
                     child: Text(e.name),
@@ -54,6 +57,7 @@ class PersonalDataPage extends StatelessWidget {
               hint: Text(context.watch<BoardingController>().userType.name),
             ),
             ElevatedButton(
+              key: const Key("nextBtn"),
               onPressed: nextEnable
                   ? () {
                       context

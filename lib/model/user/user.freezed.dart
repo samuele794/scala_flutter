@@ -21,15 +21,11 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   String get name => throw _privateConstructorUsedError;
-
   String get surname => throw _privateConstructorUsedError;
-
   String? get birthDate => throw _privateConstructorUsedError;
-
   UserType get accountType => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
@@ -38,7 +34,6 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-
   $Res call(
       {String name, String surname, String? birthDate, UserType accountType});
 }
@@ -48,7 +43,6 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
   _$UserCopyWithImpl(this._value, this._then);
 
   final User _value;
-
   // ignore: unused_field
   final $Res Function(User) _then;
 
@@ -84,7 +78,6 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
       __$$_UserCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {String name, String surname, String? birthDate, UserType accountType});
@@ -199,16 +192,12 @@ abstract class _User implements User {
 
   @override
   String get name => throw _privateConstructorUsedError;
-
   @override
   String get surname => throw _privateConstructorUsedError;
-
   @override
   String? get birthDate => throw _privateConstructorUsedError;
-
   @override
   UserType get accountType => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
