@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:scala_flutter/controller/boarding/boarding_controller.dart';
 import 'package:scala_flutter/di.dart';
@@ -36,6 +37,8 @@ class MyApp extends StatelessWidget {
         final RouterImpl goRouter = context.read<RouterImpl>();
 
         return MaterialApp.router(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           routeInformationParser: goRouter.router.routeInformationParser,
           routerDelegate: goRouter.router.routerDelegate,
           title: 'Flutter Template',

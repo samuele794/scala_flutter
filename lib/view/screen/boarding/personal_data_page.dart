@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:scala_flutter/model/user/user_type.dart';
@@ -19,52 +20,70 @@ class PersonalDataPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextField(
-              key: const Key("nameField"),
-              onChanged: (value) {
-                context.read<BoardingController>().setName(value);
-              },
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Name',
-              ),
-            ),
-            TextField(
-              key: const Key("surnameField"),
-              onChanged: (value) {
-                context.read<BoardingController>().setSurname(value);
-              },
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: 'Surname',
-              ),
-            ),
-            DropdownButton<UserType>(
-              key: const Key("roleField"),
-              items: UserType.values.map(
-                (e) {
-                  return DropdownMenuItem<UserType>(
-                    value: e,
-                    child: Text(e.name),
-                  );
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+              child: TextField(
+                key: const Key("nameField"),
+                onChanged: (value) {
+                  context.read<BoardingController>().setName(value);
                 },
-              ).toList(),
-              onChanged: (select) {
-                context.read<BoardingController>().setUserType(select!);
-              },
-              icon: const Icon(Icons.arrow_downward),
-              value: context.watch<BoardingController>().userType,
-              hint: Text(context.watch<BoardingController>().userType.name),
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  hintText: AppLocalizations.of(context).name,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: TextField(
+                key: const Key("surnameField"),
+                onChanged: (value) {
+                  context.read<BoardingController>().setSurname(value);
+                },
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  hintText: AppLocalizations.of(context).surname,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: DropdownButton<UserType>(
+                key: const Key("roleField"),
+                items: UserType.values.map(
+                  (e) {
+                    return DropdownMenuItem<UserType>(
+                      value: e,
+                      child: Text(e.name),
+                    );
+                  },
+                ).toList(),
+                onChanged: (select) {
+                  context.read<BoardingController>().setUserType(select!);
+                },
+                icon: const Icon(Icons.arrow_downward),
+                value: context.watch<BoardingController>().userType,
+                hint: Text(context.watch<BoardingController>().userType.name),
+              ),
             ),
             ElevatedButton(
               key: const Key("nextBtn"),
               onPressed: nextEnable
                   ? () {
-                      context
-                          .pushNamed(RoutingConstants.boardingBodyRoute.name);
+                      switch (context.read<BoardingController>().userType) {
+                        case UserType.TRAINER:
+                          context.pushNamed(
+                              RoutingConstants.boardingTrainerMapRoute.name);
+                          break;
+                        case UserType.USER:
+                          context.pushNamed(
+                              RoutingConstants.boardingBodyRoute.name);
+                          break;
+                        default:
+                      }
                     }
                   : null,
-              child: const Text("Next"),
+              child: Text(AppLocalizations.of(context).next),
             )
           ],
         ),
