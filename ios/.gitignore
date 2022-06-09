@@ -33,3 +33,6 @@ Runner/GeneratedPluginRegistrant.*
 !default.pbxuser
 !default.perspectivev3
 /firebase_app_id_file.json
+GoogleService-Info.plist
+/Runner/SecretKey.xcconfig
+.last_build_id
