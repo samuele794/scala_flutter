@@ -12,7 +12,7 @@ class PersonalDataPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var nextEnable = context.watch<BoardingController>().firstNext;
+    var nextEnable = context.watch<BoardingController>().ui.firstNext;
 
     return Scaffold(
       body: Padding(
@@ -62,15 +62,16 @@ class PersonalDataPage extends StatelessWidget {
                   context.read<BoardingController>().setUserType(select!);
                 },
                 icon: const Icon(Icons.arrow_downward),
-                value: context.watch<BoardingController>().userType,
-                hint: Text(context.watch<BoardingController>().userType.name),
+                value: context.watch<BoardingController>().ui.userType,
+                hint:
+                    Text(context.watch<BoardingController>().ui.userType.name),
               ),
             ),
             ElevatedButton(
               key: const Key("nextBtn"),
               onPressed: nextEnable
                   ? () {
-                      switch (context.read<BoardingController>().userType) {
+                switch (context.read<BoardingController>().ui.userType) {
                         case UserType.TRAINER:
                           context.pushNamed(
                               RoutingConstants.boardingTrainerMapRoute.name);

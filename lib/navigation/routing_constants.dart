@@ -8,9 +8,12 @@ class RoutingConstants {
   static const boardingRoute = Route(name: 'boarding', path: '/boarding');
 
   // static const boardingPersonalRoute =  Route(name: 'boarding_personal', path: 'personal');
-  static const boardingBodyRoute = Route(name: 'boarding_body', path: 'body');
+  static const boardingBodyRoute =
+      Route(name: 'boarding_body', path: 'user/body');
+  static const boardingTrainerPlacesRouter =
+      Route(name: 'boarding_trainer_places', path: "trainer/places");
   static const boardingTrainerMapRoute =
-      Route(name: 'boarding_trainer_map', path: 'boardingTrainerMap');
+      Route(name: 'boarding_trainer_map', path: 'trainer/boardingTrainerMap');
 
   //endregion
 

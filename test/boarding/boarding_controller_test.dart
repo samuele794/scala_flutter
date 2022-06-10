@@ -21,7 +21,7 @@ void main() {
     );
 
     await tester.enterText(find.byKey(const Key("nameField")), "Samuele");
-    expect(boardingController.name, "Samuele");
+    expect(boardingController.ui.name, "Samuele");
 
     // expect(
     //     tester
@@ -42,7 +42,7 @@ void main() {
     );
 
     await tester.enterText(find.byKey(const Key("surnameField")), "Bruschi");
-    expect(boardingController.surname, "Bruschi");
+    expect(boardingController.ui.surname, "Bruschi");
   });
 
   testWidgets('Widget user role USER', (WidgetTester tester) async {
@@ -62,11 +62,13 @@ void main() {
     await tester.tap(dropdown);
     await tester.pumpAndSettle();
 
-    final userElementDrop = find.text(UserType.USER.name).last;
+    final userElementDrop = find
+        .text(UserType.USER.name)
+        .last;
     await tester.tap(userElementDrop);
     await tester.pumpAndSettle();
 
-    expect(boardingController.userType, UserType.USER);
+    expect(boardingController.ui.userType, UserType.USER);
   });
 
   testWidgets('Widget all filled Next Enabled', (WidgetTester tester) async {

@@ -8,14 +8,14 @@ import 'package:scala_flutter/di.dart';
 import 'firebase_options.dart';
 import 'navigation/router.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  await initDi();
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  initDi();
 
   runApp(const MyApp());
 }

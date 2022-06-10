@@ -1,4 +1,3 @@
-
 enum UserType {
   NONE,
   TRAINER,

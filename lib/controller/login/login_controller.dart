@@ -1,9 +1,10 @@
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:scala_flutter/di.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginController {
-  GoogleSignIn googleSignIn = getIt.get();
+  GoogleSignIn googleSignIn;
+
+  LoginController(this.googleSignIn);
 
   Future<bool> loginWithCredential() async {
     try {
