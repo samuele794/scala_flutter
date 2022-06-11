@@ -1,18 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:logger/logger.dart';
 import 'package:scala_flutter/model/user/user_type.dart';
+import 'package:scala_flutter/repository/places_repository.dart';
+
+import '../../model/maps/places/places_result.dart';
 
 part 'boarding_controller.freezed.dart';
 
 class BoardingController with ChangeNotifier {
+  final Logger _logger = Logger();
+
   BoardingUi ui = BoardingUi();
-  var firstNext = false;
+  PlaceSearchUi placeSearchUi = PlaceSearchUi();
 
-  // PlacesRepository placesRepository;
+  PlacesRepository placesRepository;
 
-  // List<PlacesResult> placeSearched = <PlacesResult>[];
+  Timer? _debounce;
 
-  // BoardingController(this.placesRepository);
+  BoardingController(this.placesRepository);
 
   void setUserType(UserType userType) {
     ui = ui.copyWith(userType: userType);
@@ -38,13 +47,64 @@ class BoardingController with ChangeNotifier {
   }
 
   void _checkFirstOnBoardNext() {
-    firstNext = ui.userType != UserType.NONE &&
+    final firstNext = ui.userType != UserType.NONE &&
         ui.name.isNotEmpty &&
         ui.surname.isNotEmpty;
+
+    ui = ui.copyWith(firstNext: firstNext);
     notifyListeners();
   }
 
-  Future<void> searchPlace(String query) async {}
+  void searchPlace(BuildContext context, String query) async {
+    if (query == placeSearchUi.placeSearchQuery) {
+      return;
+    }
+
+    placeSearchUi = placeSearchUi.copyWith(placeSearchQuery: query);
+
+    if (query.isEmpty) {
+      clearSearchPlaces();
+      return;
+    }
+
+    _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 500), () async {
+      try {
+        final placeResult = await placesRepository.getPlaces(
+            AppLocalizations.of(context).localeName, query);
+        _logger.i("Result places");
+        _logger.i(placeResult);
+        placeSearchUi = placeSearchUi.copyWith(placeSearched: placeResult);
+        notifyListeners();
+      } catch (ex) {
+        _logger.e("Error Search place", ex);
+        clearSearchPlaces();
+      }
+    });
+  }
+
+  void selectPlace(PlacesResult placeSelected) {
+    placeSearchUi = placeSearchUi.copyWith(placeSelected: placeSelected);
+    notifyListeners();
+  }
+
+  void clearSearchPlaces() {
+    placeSearchUi = placeSearchUi.copyWith(placeSearched: []);
+    notifyListeners();
+  }
+
+  void resetSearchPlaces() {
+    placeSearchUi = PlaceSearchUi();
+    notifyListeners();
+  }
+}
+
+@freezed
+class PlaceSearchUi with _$PlaceSearchUi {
+  factory PlaceSearchUi(
+      {@Default("") placeSearchQuery,
+      @Default([]) List<PlacesResult> placeSearched,
+      PlacesResult? placeSelected}) = _PlaceSearchUi;
 }
 
 @freezed

@@ -24,7 +24,6 @@ mixin _$OpeningHours {
   bool? get openNow => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $OpeningHoursCopyWith<OpeningHours> get copyWith =>
       throw _privateConstructorUsedError;
@@ -35,7 +34,6 @@ abstract class $OpeningHoursCopyWith<$Res> {
   factory $OpeningHoursCopyWith(
           OpeningHours value, $Res Function(OpeningHours) then) =
       _$OpeningHoursCopyWithImpl<$Res>;
-
   $Res call({@JsonKey(name: "open_now") bool? openNow});
 }
 
@@ -44,7 +42,6 @@ class _$OpeningHoursCopyWithImpl<$Res> implements $OpeningHoursCopyWith<$Res> {
   _$OpeningHoursCopyWithImpl(this._value, this._then);
 
   final OpeningHours _value;
-
   // ignore: unused_field
   final $Res Function(OpeningHours) _then;
 
@@ -67,7 +64,6 @@ abstract class _$$_OpeningHoursCopyWith<$Res>
   factory _$$_OpeningHoursCopyWith(
           _$_OpeningHours value, $Res Function(_$_OpeningHours) then) =
       __$$_OpeningHoursCopyWithImpl<$Res>;
-
   @override
   $Res call({@JsonKey(name: "open_now") bool? openNow});
 }
@@ -147,7 +143,6 @@ abstract class _OpeningHours implements OpeningHours {
   @override
   @JsonKey(name: "open_now")
   bool? get openNow => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_OpeningHoursCopyWith<_$_OpeningHours> get copyWith =>

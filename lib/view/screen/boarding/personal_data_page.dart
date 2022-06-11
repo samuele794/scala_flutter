@@ -73,8 +73,8 @@ class PersonalDataPage extends StatelessWidget {
                   ? () {
                 switch (context.read<BoardingController>().ui.userType) {
                         case UserType.TRAINER:
-                          context.pushNamed(
-                              RoutingConstants.boardingTrainerMapRoute.name);
+                          context.pushNamed(RoutingConstants
+                              .boardingTrainerPlacesRouter.name);
                           break;
                         case UserType.USER:
                           context.pushNamed(

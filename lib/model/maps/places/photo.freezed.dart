@@ -22,18 +22,14 @@ Photo _$PhotoFromJson(Map<String, dynamic> json) {
 mixin _$Photo {
   @JsonKey(name: "height")
   int? get height => throw _privateConstructorUsedError;
-
   @JsonKey(name: "html_attributions")
   List<String>? get htmlAttributions => throw _privateConstructorUsedError;
-
   @JsonKey(name: "photo_reference")
   String? get photoReference => throw _privateConstructorUsedError;
-
   @JsonKey(name: "width")
   int? get width => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $PhotoCopyWith<Photo> get copyWith => throw _privateConstructorUsedError;
 }
@@ -42,7 +38,6 @@ mixin _$Photo {
 abstract class $PhotoCopyWith<$Res> {
   factory $PhotoCopyWith(Photo value, $Res Function(Photo) then) =
       _$PhotoCopyWithImpl<$Res>;
-
   $Res call(
       {@JsonKey(name: "height") int? height,
       @JsonKey(name: "html_attributions") List<String>? htmlAttributions,
@@ -55,7 +50,6 @@ class _$PhotoCopyWithImpl<$Res> implements $PhotoCopyWith<$Res> {
   _$PhotoCopyWithImpl(this._value, this._then);
 
   final Photo _value;
-
   // ignore: unused_field
   final $Res Function(Photo) _then;
 
@@ -91,7 +85,6 @@ class _$PhotoCopyWithImpl<$Res> implements $PhotoCopyWith<$Res> {
 abstract class _$$_PhotoCopyWith<$Res> implements $PhotoCopyWith<$Res> {
   factory _$$_PhotoCopyWith(_$_Photo value, $Res Function(_$_Photo) then) =
       __$$_PhotoCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {@JsonKey(name: "height") int? height,
@@ -154,7 +147,6 @@ class _$_Photo implements _Photo {
   @JsonKey(name: "height")
   final int? height;
   final List<String>? _htmlAttributions;
-
   @override
   @JsonKey(name: "html_attributions")
   List<String>? get htmlAttributions {
@@ -221,19 +213,15 @@ abstract class _Photo implements Photo {
   @override
   @JsonKey(name: "height")
   int? get height => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "html_attributions")
   List<String>? get htmlAttributions => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "photo_reference")
   String? get photoReference => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "width")
   int? get width => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_PhotoCopyWith<_$_Photo> get copyWith =>

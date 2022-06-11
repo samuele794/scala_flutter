@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider<RouterImpl>(create: (_) => RouterImpl()),
         ChangeNotifierProvider<BoardingController>(
-          create: (_) => BoardingController(),
+          create: (_) => BoardingController(getIt.get()),
           lazy: true,
         ),
       ],

@@ -21,18 +21,13 @@ Place _$PlaceFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Place {
   String get place => throw _privateConstructorUsedError;
-
   String get placeNamed => throw _privateConstructorUsedError;
-
   String get address => throw _privateConstructorUsedError;
-
   @JsonKey(fromJson: LatLng.fromJson, toJson: jsonEncode)
   LatLng? get latLng => throw _privateConstructorUsedError;
-
   String get geoHash => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $PlaceCopyWith<Place> get copyWith => throw _privateConstructorUsedError;
 }
@@ -41,7 +36,6 @@ mixin _$Place {
 abstract class $PlaceCopyWith<$Res> {
   factory $PlaceCopyWith(Place value, $Res Function(Place) then) =
       _$PlaceCopyWithImpl<$Res>;
-
   $Res call(
       {String place,
       String placeNamed,
@@ -55,7 +49,6 @@ class _$PlaceCopyWithImpl<$Res> implements $PlaceCopyWith<$Res> {
   _$PlaceCopyWithImpl(this._value, this._then);
 
   final Place _value;
-
   // ignore: unused_field
   final $Res Function(Place) _then;
 
@@ -96,7 +89,6 @@ class _$PlaceCopyWithImpl<$Res> implements $PlaceCopyWith<$Res> {
 abstract class _$$_PlaceCopyWith<$Res> implements $PlaceCopyWith<$Res> {
   factory _$$_PlaceCopyWith(_$_Place value, $Res Function(_$_Place) then) =
       __$$_PlaceCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {String place,
@@ -226,20 +218,15 @@ abstract class _Place implements Place {
 
   @override
   String get place => throw _privateConstructorUsedError;
-
   @override
   String get placeNamed => throw _privateConstructorUsedError;
-
   @override
   String get address => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(fromJson: LatLng.fromJson, toJson: jsonEncode)
   LatLng? get latLng => throw _privateConstructorUsedError;
-
   @override
   String get geoHash => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_PlaceCopyWith<_$_Place> get copyWith =>

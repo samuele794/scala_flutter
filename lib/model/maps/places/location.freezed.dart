@@ -22,12 +22,10 @@ Location _$LocationFromJson(Map<String, dynamic> json) {
 mixin _$Location {
   @JsonKey(name: "lat")
   double? get lat => throw _privateConstructorUsedError;
-
   @JsonKey(name: "lng")
   double? get lng => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $LocationCopyWith<Location> get copyWith =>
       throw _privateConstructorUsedError;
@@ -37,7 +35,6 @@ mixin _$Location {
 abstract class $LocationCopyWith<$Res> {
   factory $LocationCopyWith(Location value, $Res Function(Location) then) =
       _$LocationCopyWithImpl<$Res>;
-
   $Res call(
       {@JsonKey(name: "lat") double? lat, @JsonKey(name: "lng") double? lng});
 }
@@ -47,7 +44,6 @@ class _$LocationCopyWithImpl<$Res> implements $LocationCopyWith<$Res> {
   _$LocationCopyWithImpl(this._value, this._then);
 
   final Location _value;
-
   // ignore: unused_field
   final $Res Function(Location) _then;
 
@@ -74,7 +70,6 @@ abstract class _$$_LocationCopyWith<$Res> implements $LocationCopyWith<$Res> {
   factory _$$_LocationCopyWith(
           _$_Location value, $Res Function(_$_Location) then) =
       __$$_LocationCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {@JsonKey(name: "lat") double? lat, @JsonKey(name: "lng") double? lng});
@@ -165,11 +160,9 @@ abstract class _Location implements Location {
   @override
   @JsonKey(name: "lat")
   double? get lat => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "lng")
   double? get lng => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_LocationCopyWith<_$_Location> get copyWith =>

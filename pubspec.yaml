@@ -60,6 +60,9 @@ dependencies:
   json_serializable: ^6.2.0
   mockito: ^5.2.0
 
+  # Logger https://pub.dev/packages/logger
+  logger: ^1.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

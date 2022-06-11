@@ -22,12 +22,10 @@ PlacesResponse _$PlacesResponseFromJson(Map<String, dynamic> json) {
 mixin _$PlacesResponse {
   @JsonKey(name: "status")
   String? get status => throw _privateConstructorUsedError;
-
   @JsonKey(name: "results")
   List<PlacesResult> get placesResults => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $PlacesResponseCopyWith<PlacesResponse> get copyWith =>
       throw _privateConstructorUsedError;
@@ -38,7 +36,6 @@ abstract class $PlacesResponseCopyWith<$Res> {
   factory $PlacesResponseCopyWith(
           PlacesResponse value, $Res Function(PlacesResponse) then) =
       _$PlacesResponseCopyWithImpl<$Res>;
-
   $Res call(
       {@JsonKey(name: "status") String? status,
       @JsonKey(name: "results") List<PlacesResult> placesResults});
@@ -50,7 +47,6 @@ class _$PlacesResponseCopyWithImpl<$Res>
   _$PlacesResponseCopyWithImpl(this._value, this._then);
 
   final PlacesResponse _value;
-
   // ignore: unused_field
   final $Res Function(PlacesResponse) _then;
 
@@ -78,7 +74,6 @@ abstract class _$$_PlacesResponseCopyWith<$Res>
   factory _$$_PlacesResponseCopyWith(
           _$_PlacesResponse value, $Res Function(_$_PlacesResponse) then) =
       __$$_PlacesResponseCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {@JsonKey(name: "status") String? status,
@@ -131,7 +126,6 @@ class _$_PlacesResponse implements _PlacesResponse {
   @JsonKey(name: "status")
   final String? status;
   final List<PlacesResult> _placesResults;
-
   @override
   @JsonKey(name: "results")
   List<PlacesResult> get placesResults {
@@ -184,11 +178,9 @@ abstract class _PlacesResponse implements PlacesResponse {
   @override
   @JsonKey(name: "status")
   String? get status => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "results")
   List<PlacesResult> get placesResults => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_PlacesResponseCopyWith<_$_PlacesResponse> get copyWith =>

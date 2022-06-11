@@ -22,48 +22,34 @@ PlacesResult _$PlacesResultFromJson(Map<String, dynamic> json) {
 mixin _$PlacesResult {
   @JsonKey(name: "business_status")
   String? get businessStatus => throw _privateConstructorUsedError;
-
   @JsonKey(name: "formatted_address")
   String? get formattedAddress => throw _privateConstructorUsedError;
-
   @JsonKey(name: "geometry")
   Geometry? get geometry => throw _privateConstructorUsedError;
-
   @JsonKey(name: "icon")
   String? get icon => throw _privateConstructorUsedError;
-
   @JsonKey(name: "icon_background_color")
   String? get iconBackgroundColor => throw _privateConstructorUsedError;
-
   @JsonKey(name: "icon_mask_base_uri")
   String? get iconMaskBaseUri => throw _privateConstructorUsedError;
-
   @JsonKey(name: "name")
   String? get name => throw _privateConstructorUsedError;
-
   @JsonKey(name: "opening_hours")
   OpeningHours? get openingHours => throw _privateConstructorUsedError;
-
   @JsonKey(name: "photos")
   List<Photo>? get photos => throw _privateConstructorUsedError;
-
   @JsonKey(name: "place_id")
   String? get placeId => throw _privateConstructorUsedError;
-
   @JsonKey(name: "rating")
   double? get rating => throw _privateConstructorUsedError;
-
   @JsonKey(name: "reference")
   String? get reference => throw _privateConstructorUsedError;
-
   @JsonKey(name: "types")
   List<String>? get types => throw _privateConstructorUsedError;
-
   @JsonKey(name: "user_ratings_total")
   int? get userRatingsTotal => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $PlacesResultCopyWith<PlacesResult> get copyWith =>
       throw _privateConstructorUsedError;
@@ -74,7 +60,6 @@ abstract class $PlacesResultCopyWith<$Res> {
   factory $PlacesResultCopyWith(
           PlacesResult value, $Res Function(PlacesResult) then) =
       _$PlacesResultCopyWithImpl<$Res>;
-
   $Res call(
       {@JsonKey(name: "business_status") String? businessStatus,
       @JsonKey(name: "formatted_address") String? formattedAddress,
@@ -92,7 +77,6 @@ abstract class $PlacesResultCopyWith<$Res> {
       @JsonKey(name: "user_ratings_total") int? userRatingsTotal});
 
   $GeometryCopyWith<$Res>? get geometry;
-
   $OpeningHoursCopyWith<$Res>? get openingHours;
 }
 
@@ -101,7 +85,6 @@ class _$PlacesResultCopyWithImpl<$Res> implements $PlacesResultCopyWith<$Res> {
   _$PlacesResultCopyWithImpl(this._value, this._then);
 
   final PlacesResult _value;
-
   // ignore: unused_field
   final $Res Function(PlacesResult) _then;
 
@@ -211,7 +194,6 @@ abstract class _$$_PlacesResultCopyWith<$Res>
   factory _$$_PlacesResultCopyWith(
           _$_PlacesResult value, $Res Function(_$_PlacesResult) then) =
       __$$_PlacesResultCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {@JsonKey(name: "business_status") String? businessStatus,
@@ -231,7 +213,6 @@ abstract class _$$_PlacesResultCopyWith<$Res>
 
   @override
   $GeometryCopyWith<$Res>? get geometry;
-
   @override
   $OpeningHoursCopyWith<$Res>? get openingHours;
 }
@@ -374,7 +355,6 @@ class _$_PlacesResult implements _PlacesResult {
   @JsonKey(name: "opening_hours")
   final OpeningHours? openingHours;
   final List<Photo>? _photos;
-
   @override
   @JsonKey(name: "photos")
   List<Photo>? get photos {
@@ -394,7 +374,6 @@ class _$_PlacesResult implements _PlacesResult {
   @JsonKey(name: "reference")
   final String? reference;
   final List<String>? _types;
-
   @override
   @JsonKey(name: "types")
   List<String>? get types {
@@ -507,59 +486,45 @@ abstract class _PlacesResult implements PlacesResult {
   @override
   @JsonKey(name: "business_status")
   String? get businessStatus => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "formatted_address")
   String? get formattedAddress => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "geometry")
   Geometry? get geometry => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "icon")
   String? get icon => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "icon_background_color")
   String? get iconBackgroundColor => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "icon_mask_base_uri")
   String? get iconMaskBaseUri => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "name")
   String? get name => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "opening_hours")
   OpeningHours? get openingHours => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "photos")
   List<Photo>? get photos => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "place_id")
   String? get placeId => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "rating")
   double? get rating => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "reference")
   String? get reference => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "types")
   List<String>? get types => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(name: "user_ratings_total")
   int? get userRatingsTotal => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_PlacesResultCopyWith<_$_PlacesResult> get copyWith =>

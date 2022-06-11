@@ -13,7 +13,7 @@ class RoutingConstants {
   static const boardingTrainerPlacesRouter =
       Route(name: 'boarding_trainer_places', path: "trainer/places");
   static const boardingTrainerMapRoute =
-      Route(name: 'boarding_trainer_map', path: 'trainer/boardingTrainerMap');
+      Route(name: 'boarding_trainer_map', path: 'trainer/places/new');
 
   //endregion
 

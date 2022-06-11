@@ -24,7 +24,6 @@ mixin _$Geometry {
   Location? get location => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $GeometryCopyWith<Geometry> get copyWith =>
       throw _privateConstructorUsedError;
@@ -34,7 +33,6 @@ mixin _$Geometry {
 abstract class $GeometryCopyWith<$Res> {
   factory $GeometryCopyWith(Geometry value, $Res Function(Geometry) then) =
       _$GeometryCopyWithImpl<$Res>;
-
   $Res call({@JsonKey(name: "location") Location? location});
 
   $LocationCopyWith<$Res>? get location;
@@ -45,7 +43,6 @@ class _$GeometryCopyWithImpl<$Res> implements $GeometryCopyWith<$Res> {
   _$GeometryCopyWithImpl(this._value, this._then);
 
   final Geometry _value;
-
   // ignore: unused_field
   final $Res Function(Geometry) _then;
 
@@ -78,7 +75,6 @@ abstract class _$$_GeometryCopyWith<$Res> implements $GeometryCopyWith<$Res> {
   factory _$$_GeometryCopyWith(
           _$_Geometry value, $Res Function(_$_Geometry) then) =
       __$$_GeometryCopyWithImpl<$Res>;
-
   @override
   $Res call({@JsonKey(name: "location") Location? location});
 
@@ -159,7 +155,6 @@ abstract class _Geometry implements Geometry {
   @override
   @JsonKey(name: "location")
   Location? get location => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_GeometryCopyWith<_$_Geometry> get copyWith =>

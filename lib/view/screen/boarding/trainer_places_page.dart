@@ -11,9 +11,9 @@ class TrainerPlacesPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(onPressed: () {
         context.pushNamed(RoutingConstants.boardingTrainerMapRoute.name);
       }),
-      body: Column(
-        children: [],
-      ),
+      body: ListView.builder(itemBuilder: (BuildContext context, int index) {
+        return Text("data");
+      }),
     );
   }
 }

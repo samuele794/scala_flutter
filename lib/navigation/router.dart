@@ -7,6 +7,7 @@ import 'package:scala_flutter/navigation/routing_constants.dart';
 import 'package:scala_flutter/view/screen/boarding/body_data_page.dart';
 import 'package:scala_flutter/view/screen/boarding/personal_data_page.dart';
 import 'package:scala_flutter/view/screen/boarding/trainer_map_page.dart';
+import 'package:scala_flutter/view/screen/boarding/trainer_places_page.dart';
 
 import '../view/screen/login/login_page.dart';
 
@@ -58,6 +59,12 @@ class RouterImpl extends Router {
                             ),
                             child: child),
               ),
+            ),
+            GoRoute(
+              path: RoutingConstants.boardingTrainerPlacesRouter.path,
+              name: RoutingConstants.boardingTrainerPlacesRouter.name,
+              pageBuilder: (context, state) =>
+                  const MaterialPage(child: TrainerPlacesPage()),
             ),
             GoRoute(
               path: RoutingConstants.boardingTrainerMapRoute.path,
