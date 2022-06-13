@@ -3,13 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:scala_flutter/controller/boarding/boarding_controller.dart';
 import 'package:scala_flutter/model/user/user_type.dart';
+import 'package:scala_flutter/repository/places_repository.mocks.dart';
 import 'package:scala_flutter/view/screen/boarding/personal_data_page.dart';
 
 import '../utils/utils.dart';
 
 void main() {
   testWidgets('Widget user name', (WidgetTester tester) async {
-    final boardingController = BoardingController();
+    final boardingController = BoardingController(MockPlacesRepository());
 
     await tester.pumpWidget(
       ChangeNotifierProvider(
@@ -30,7 +31,7 @@ void main() {
   });
 
   testWidgets('Widget user surname', (WidgetTester tester) async {
-    final boardingController = BoardingController();
+    final boardingController = BoardingController(MockPlacesRepository());
 
     await tester.pumpWidget(
       ChangeNotifierProvider(
@@ -46,7 +47,7 @@ void main() {
   });
 
   testWidgets('Widget user role USER', (WidgetTester tester) async {
-    final boardingController = BoardingController();
+    final boardingController = BoardingController(MockPlacesRepository());
     const key = Key("roleField");
 
     await tester.pumpWidget(
@@ -72,7 +73,7 @@ void main() {
   });
 
   testWidgets('Widget all filled Next Enabled', (WidgetTester tester) async {
-    final boardingController = BoardingController();
+    final boardingController = BoardingController(MockPlacesRepository());
     const key = Key("roleField");
 
     ElevatedButton getNextBtn() {
