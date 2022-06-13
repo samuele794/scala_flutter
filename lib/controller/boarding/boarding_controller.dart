@@ -17,11 +17,11 @@ class BoardingController with ChangeNotifier {
   BoardingUi ui = BoardingUi();
   PlaceSearchUi placeSearchUi = PlaceSearchUi();
 
-  PlacesRepository placesRepository;
+  PlacesRepository _placesRepository;
 
   Timer? _debounce;
 
-  BoardingController(this.placesRepository);
+  BoardingController(this._placesRepository);
 
   void setUserType(UserType userType) {
     ui = ui.copyWith(userType: userType);
@@ -63,14 +63,15 @@ class BoardingController with ChangeNotifier {
     placeSearchUi = placeSearchUi.copyWith(placeSearchQuery: query);
 
     if (query.isEmpty) {
-      clearSearchPlaces();
+      _debounce?.cancel();
+      resetSearchPlaces();
       return;
     }
 
     _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () async {
       try {
-        final placeResult = await placesRepository.getPlaces(
+        final placeResult = await _placesRepository.getPlaces(
             AppLocalizations.of(context).localeName, query);
         _logger.i("Result places");
         _logger.i(placeResult);
@@ -97,14 +98,27 @@ class BoardingController with ChangeNotifier {
     placeSearchUi = PlaceSearchUi();
     notifyListeners();
   }
+
+  void saveTrainerPlace() {
+    final placeSelected = placeSearchUi.placeSelected;
+    if (placeSelected == null) {
+      return;
+    }
+    final newPlaces = ui.trainerPlaces.toList();
+    newPlaces.add(placeSelected);
+    ui = ui.copyWith(trainerPlaces: newPlaces);
+    placeSearchUi = PlaceSearchUi();
+    notifyListeners();
+  }
 }
 
 @freezed
 class PlaceSearchUi with _$PlaceSearchUi {
-  factory PlaceSearchUi(
-      {@Default("") placeSearchQuery,
-      @Default([]) List<PlacesResult> placeSearched,
-      PlacesResult? placeSelected}) = _PlaceSearchUi;
+  factory PlaceSearchUi({
+    @Default("") placeSearchQuery,
+    @Default([]) List<PlacesResult> placeSearched,
+    PlacesResult? placeSelected,
+  }) = _PlaceSearchUi;
 }
 
 @freezed
@@ -115,5 +129,6 @@ class BoardingUi with _$BoardingUi {
     @Default(UserType.NONE) UserType userType,
     @Default(false) bool firstNext,
     @Default("0") String height,
+    @Default([]) List<PlacesResult> trainerPlaces,
   }) = _BoardingUi;
 }

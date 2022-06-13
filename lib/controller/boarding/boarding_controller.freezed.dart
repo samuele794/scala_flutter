@@ -17,9 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$PlaceSearchUi {
   dynamic get placeSearchQuery => throw _privateConstructorUsedError;
-
   List<PlacesResult> get placeSearched => throw _privateConstructorUsedError;
-
   PlacesResult? get placeSelected => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -32,7 +30,6 @@ abstract class $PlaceSearchUiCopyWith<$Res> {
   factory $PlaceSearchUiCopyWith(
           PlaceSearchUi value, $Res Function(PlaceSearchUi) then) =
       _$PlaceSearchUiCopyWithImpl<$Res>;
-
   $Res call(
       {dynamic placeSearchQuery,
       List<PlacesResult> placeSearched,
@@ -47,7 +44,6 @@ class _$PlaceSearchUiCopyWithImpl<$Res>
   _$PlaceSearchUiCopyWithImpl(this._value, this._then);
 
   final PlaceSearchUi _value;
-
   // ignore: unused_field
   final $Res Function(PlaceSearchUi) _then;
 
@@ -91,7 +87,6 @@ abstract class _$$_PlaceSearchUiCopyWith<$Res>
   factory _$$_PlaceSearchUiCopyWith(
           _$_PlaceSearchUi value, $Res Function(_$_PlaceSearchUi) then) =
       __$$_PlaceSearchUiCopyWithImpl<$Res>;
-
   @override
   $Res call(
       {dynamic placeSearchQuery,
@@ -148,7 +143,6 @@ class _$_PlaceSearchUi implements _PlaceSearchUi {
   @JsonKey()
   final dynamic placeSearchQuery;
   final List<PlacesResult> _placeSearched;
-
   @override
   @JsonKey()
   List<PlacesResult> get placeSearched {
@@ -198,13 +192,10 @@ abstract class _PlaceSearchUi implements PlaceSearchUi {
 
   @override
   dynamic get placeSearchQuery => throw _privateConstructorUsedError;
-
   @override
   List<PlacesResult> get placeSearched => throw _privateConstructorUsedError;
-
   @override
   PlacesResult? get placeSelected => throw _privateConstructorUsedError;
-
   @override
   @JsonKey(ignore: true)
   _$$_PlaceSearchUiCopyWith<_$_PlaceSearchUi> get copyWith =>
@@ -214,14 +205,12 @@ abstract class _PlaceSearchUi implements PlaceSearchUi {
 /// @nodoc
 mixin _$BoardingUi {
   String get name => throw _privateConstructorUsedError;
-
   String get surname => throw _privateConstructorUsedError;
-
   UserType get userType => throw _privateConstructorUsedError;
-
   bool get firstNext => throw _privateConstructorUsedError;
-
   String get height => throw _privateConstructorUsedError;
+
+  List<PlacesResult> get trainerPlaces => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BoardingUiCopyWith<BoardingUi> get copyWith =>
@@ -233,12 +222,14 @@ abstract class $BoardingUiCopyWith<$Res> {
   factory $BoardingUiCopyWith(
           BoardingUi value, $Res Function(BoardingUi) then) =
       _$BoardingUiCopyWithImpl<$Res>;
+
   $Res call(
       {String name,
       String surname,
       UserType userType,
       bool firstNext,
-      String height});
+      String height,
+      List<PlacesResult> trainerPlaces});
 }
 
 /// @nodoc
@@ -256,6 +247,7 @@ class _$BoardingUiCopyWithImpl<$Res> implements $BoardingUiCopyWith<$Res> {
     Object? userType = freezed,
     Object? firstNext = freezed,
     Object? height = freezed,
+    Object? trainerPlaces = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -278,6 +270,10 @@ class _$BoardingUiCopyWithImpl<$Res> implements $BoardingUiCopyWith<$Res> {
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as String,
+      trainerPlaces: trainerPlaces == freezed
+          ? _value.trainerPlaces
+          : trainerPlaces // ignore: cast_nullable_to_non_nullable
+              as List<PlacesResult>,
     ));
   }
 }
@@ -288,13 +284,15 @@ abstract class _$$_BoardingUiCopyWith<$Res>
   factory _$$_BoardingUiCopyWith(
           _$_BoardingUi value, $Res Function(_$_BoardingUi) then) =
       __$$_BoardingUiCopyWithImpl<$Res>;
+
   @override
   $Res call(
       {String name,
       String surname,
       UserType userType,
       bool firstNext,
-      String height});
+      String height,
+      List<PlacesResult> trainerPlaces});
 }
 
 /// @nodoc
@@ -314,6 +312,7 @@ class __$$_BoardingUiCopyWithImpl<$Res> extends _$BoardingUiCopyWithImpl<$Res>
     Object? userType = freezed,
     Object? firstNext = freezed,
     Object? height = freezed,
+    Object? trainerPlaces = freezed,
   }) {
     return _then(_$_BoardingUi(
       name: name == freezed
@@ -336,6 +335,10 @@ class __$$_BoardingUiCopyWithImpl<$Res> extends _$BoardingUiCopyWithImpl<$Res>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as String,
+      trainerPlaces: trainerPlaces == freezed
+          ? _value._trainerPlaces
+          : trainerPlaces // ignore: cast_nullable_to_non_nullable
+              as List<PlacesResult>,
     ));
   }
 }
@@ -348,7 +351,9 @@ class _$_BoardingUi implements _BoardingUi {
       this.surname = "",
       this.userType = UserType.NONE,
       this.firstNext = false,
-      this.height = "0"});
+      this.height = "0",
+      final List<PlacesResult> trainerPlaces = const []})
+      : _trainerPlaces = trainerPlaces;
 
   @override
   @JsonKey()
@@ -365,10 +370,18 @@ class _$_BoardingUi implements _BoardingUi {
   @override
   @JsonKey()
   final String height;
+  final List<PlacesResult> _trainerPlaces;
+
+  @override
+  @JsonKey()
+  List<PlacesResult> get trainerPlaces {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_trainerPlaces);
+  }
 
   @override
   String toString() {
-    return 'BoardingUi(name: $name, surname: $surname, userType: $userType, firstNext: $firstNext, height: $height)';
+    return 'BoardingUi(name: $name, surname: $surname, userType: $userType, firstNext: $firstNext, height: $height, trainerPlaces: $trainerPlaces)';
   }
 
   @override
@@ -380,7 +393,9 @@ class _$_BoardingUi implements _BoardingUi {
             const DeepCollectionEquality().equals(other.surname, surname) &&
             const DeepCollectionEquality().equals(other.userType, userType) &&
             const DeepCollectionEquality().equals(other.firstNext, firstNext) &&
-            const DeepCollectionEquality().equals(other.height, height));
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality()
+                .equals(other._trainerPlaces, _trainerPlaces));
   }
 
   @override
@@ -390,7 +405,8 @@ class _$_BoardingUi implements _BoardingUi {
       const DeepCollectionEquality().hash(surname),
       const DeepCollectionEquality().hash(userType),
       const DeepCollectionEquality().hash(firstNext),
-      const DeepCollectionEquality().hash(height));
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(_trainerPlaces));
 
   @JsonKey(ignore: true)
   @override
@@ -404,18 +420,27 @@ abstract class _BoardingUi implements BoardingUi {
       final String surname,
       final UserType userType,
       final bool firstNext,
-      final String height}) = _$_BoardingUi;
+      final String height,
+      final List<PlacesResult> trainerPlaces}) = _$_BoardingUi;
 
   @override
   String get name => throw _privateConstructorUsedError;
+
   @override
   String get surname => throw _privateConstructorUsedError;
+
   @override
   UserType get userType => throw _privateConstructorUsedError;
+
   @override
   bool get firstNext => throw _privateConstructorUsedError;
+
   @override
   String get height => throw _privateConstructorUsedError;
+
+  @override
+  List<PlacesResult> get trainerPlaces => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
   _$$_BoardingUiCopyWith<_$_BoardingUi> get copyWith =>
